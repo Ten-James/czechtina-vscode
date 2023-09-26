@@ -1,0 +1,25 @@
+{
+  "name": "czechtina",
+  "displayName": "Czechtina",
+  "description": "Czechtina language support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "czechtina",
+      "aliases": ["Czechtina", "czechtina"],
+      "extensions": [".cz",".czh"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "czechtina",
+      "scopeName": "source.czechtina",
+      "path": "./syntaxes/czechtina.tmLanguage.json"
+    }]
+  }
+}
