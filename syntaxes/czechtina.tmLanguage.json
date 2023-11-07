@@ -1,20 +1,46 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Czechtina",
-	"patterns": [
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Czechtina",
+  "patterns": [
 		{
 			"include": "#keywords"
 		},
 		{
 			"include": "#strings"
-		}
+		},
+    {
+      "include": "#chars"
+    },
+    {
+      "include": "#virtualFunctions"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#booleans"
+    }
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.czechtina",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+				"match": "\\b(if|while|for|return|vrat|do|az|else)\\b"
+			},
+      {
+        "name": "keyword.control.czechtina",
+        "match": "->"
+      }
+    ]
 		},
 		"strings": {
 			"name": "string.quoted.double.czechtina",
@@ -26,7 +52,112 @@
 					"match": "\\\\."
 				}
 			]
-		}
+		},
+    "chars": {
+      "name": "string.quoted.single.czechtina",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        {
+          "name": "constant.character.escape.czechtina",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.czechtina",
+          "match": "//.*$"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "support.type.czechtina",
+          "match": "\\b(int|float|double|char|void|bool|struct|cele|znak)\\b"
+        },
+        {
+          "name": "support.type.czechtina",
+          "begin": "pointer<",
+          "end": ">"
+        },
+        {
+          "name": "support.type.czechtina",
+          "begin": "pole<",
+          "end": ">"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.czechtina",
+          "match": "\\b(\\d+(\\.\\d+)?)\\b"
+        }
+      ]
+    },
+    "virtualFunctions": {
+      "patterns": [
+        {
+          "name": "support.function.virtual.czechtina",
+          "match": "\\b(new|hodnota|adresa|printf|scanf|print|println|throw)\\b"
+        },
+        {
+          "name": "support.function.virtual.czechtina",
+          "match": "@"
+        },
+        {
+          "name": "support.function.virtual.czechtina",
+          "match": "&"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.czechtina",
+          "match": "\\+"
+        },
+        {
+          "name": "keyword.operator.czechtina",
+          "match": "-"
+        },
+        {
+          "name": "keyword.operator.czechtina",
+          "match": "\\*"
+        },
+        {
+          "name": "keyword.operator.czechtina",
+          "match": "/"
+        },
+        {
+          "name": "keyword.operator.czechtina",
+          "match": "!="
+        },
+        {
+          "name": "keyword.operator.czechtina",
+          "match": "=="
+        },
+        {
+          "name": "keyword.operator.czechtina",
+          "match": "="
+        },
+        {
+          "name": "keyword.operator.czechtina",
+          "match": ":"
+        }
+      ]
+    },
+    "booleans": {
+      "patterns": [
+        {
+          "name": "constant.language.czechtina",
+          "match": "\\b(true|false)\\b"
+        }
+      ]
+    }
 	},
-	"scopeName": "source.czechtina"
+  "scopeName": "source.czechtina"
 }
